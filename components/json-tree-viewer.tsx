@@ -22,7 +22,7 @@ export function JsonViewer({ data, rootName = "root", defaultExpanded = true, cl
   )
 }
 
-interface JsonNodeProps {
+type JsonNodeProps = {
   name: string
   data: any
   isRoot?: boolean
