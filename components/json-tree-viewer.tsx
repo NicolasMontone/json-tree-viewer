@@ -50,10 +50,10 @@ function JsonNode({ name, data, isRoot = false, defaultExpanded = true, level = 
   const itemCount = isExpandable && data !== null && data !== undefined ? Object.keys(data).length : 0
 
   return (
-    <div className={cn("pl-4", level > 0 && "border-l border-border")}>
+    <div className={cn("pl-4 group/object", level > 0 && "border-l border-border")}>
       <div
         className={cn(
-          "flex items-center gap-1 py-1 hover:bg-muted/50 rounded px-1 -ml-4 cursor-pointer",
+          "flex items-center gap-1 py-1 hover:bg-muted/50 rounded px-1 -ml-4 cursor-pointer group/property",
           isRoot && "text-primary font-semibold",
         )}
         onClick={isExpandable ? handleToggle : undefined}
@@ -90,9 +90,11 @@ function JsonNode({ name, data, isRoot = false, defaultExpanded = true, level = 
 
         {!isExpandable && <JsonValue data={data} />}
 
+        {!isExpandable && <div className="w-3.5" />}
+
         <button
           onClick={copyToClipboard}
-          className="ml-auto opacity-0 group-hover:opacity-100 hover:bg-muted p-1 rounded"
+          className="ml-auto opacity-0 group-hover/property:opacity-100 hover:bg-muted p-1 rounded"
           title="Copy to clipboard"
         >
           {isCopied ? (
