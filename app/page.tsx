@@ -48,7 +48,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">JSON Tree Viewer</h1>
         <ThemeToggleButton />
       </div>
-      <div className="grid grid-cols-2 gap-4 h-[calc(100vh-8rem)]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-[calc(100vh-8rem)]">
         <div className="border rounded-lg p-4 bg-card flex flex-col">
           <Textarea
             value={jsonInput}
